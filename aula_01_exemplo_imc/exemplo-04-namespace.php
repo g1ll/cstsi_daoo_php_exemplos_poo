@@ -7,8 +7,8 @@ spl_autoload_register(function ($class_name) {
 use classes\Atleta;
 use classes\logs\Relatorio as logIMC;
 
-$pa1 = new Atleta("Walter Kannemann",1.83,80);
+$jogador = new Atleta("Walter Kannemann",1.83,80);
 
-$pa1->calcImc();
-$pa1->showIMC();
-logIMC::log($pa1);
+$jogador->calcImc();
+$jogador->showIMC();
+logIMC::log($jogador);
