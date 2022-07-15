@@ -1,14 +1,8 @@
 <?php 
-spl_autoload_register(function ($class_name) {
-	$path = implode("/",explode('\\',$class_name));
-    require_once $path . '.php';
-});
+include "classes/Pessoa.php";
+include "classes/Atleta.php";
 
-use classes\Atleta;
-use classes\logs\Relatorio as logIMC;
+$jogador = new Atleta("Walter Kannemann",1.83,80);
 
-$pa1 = new Atleta("Walter Kannemann",1.83,80);
-
-$pa1->calcImc();
-$pa1->showIMC();
-logIMC::log($pa1);
+$jogador->calcImc();
+$jogador->showIMC();
