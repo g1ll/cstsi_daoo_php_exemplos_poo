@@ -1,5 +1,5 @@
 <?php
-namespace classes;
+namespace classes; 
 
 class Pessoa{
 	public  $nome, $idade, $peso, $altura;
@@ -18,14 +18,6 @@ class Pessoa{
 		echo "\n$this->nome foi destruído!\n";
 	}
 
-	public function calcImc(){
-        if ($this->peso && $this->altura) {
-            $this->imc = $this->peso/$this->altura**2;
-        }else{
-			echo "Erro, informe o peso e a altura primeiro!";
-		}
-	}
-
 	public function showIMC()
 	{	
 		if(!$this->imc) echo "O IMC ainda não foi calculado!";
@@ -35,13 +27,13 @@ class Pessoa{
 	public function setAltura($altura)
 	{
 		$this->altura = $altura;
-		$this->calcImc();
+		IMC::calc($this);
 	}
 
 	public function setPeso($peso)
 	{
 		$this->peso = $peso;
-		$this->calcImc();
+		IMC::calc($this);
 	}
 
 	public function getAltura(){

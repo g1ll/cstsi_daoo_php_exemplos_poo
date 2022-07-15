@@ -1,11 +1,11 @@
 <?php
 namespace logs;
-use classes\Atleta as IMC;
+use classes\Atleta as Jogador;
 
 class Relatorio {
-	public static function log(IMC $imc)
+	public static function log(Jogador $jogador)
 	{
 		echo "\nlog:\n";
-		var_dump($imc);
+		var_dump($jogador);
 	}
 }
