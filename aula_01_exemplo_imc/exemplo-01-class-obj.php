@@ -1,6 +1,6 @@
 <?php 
 require "classes/Pessoa.php";
-use classes\Pessoa;
+// use classes\Pessoa;
 
 $pessoaUm = new Pessoa("Joao",70,1.7);
 $pessoaDois = new Pessoa("Maria",60,1.6);

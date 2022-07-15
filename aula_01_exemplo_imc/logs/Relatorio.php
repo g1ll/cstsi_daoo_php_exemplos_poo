@@ -1,5 +1,5 @@
 <?php
-namespace classes\logs;
+namespace logs;
 use classes\Atleta as IMC;
 
 class Relatorio {
