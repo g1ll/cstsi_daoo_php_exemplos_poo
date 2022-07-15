@@ -1,5 +1,5 @@
 <?php
-namespace classes;
+// namespace classes;
 
 Class Atleta extends Pessoa {
 	public function __construct($nome,$altura, $peso)

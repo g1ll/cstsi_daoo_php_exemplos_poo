@@ -1,5 +1,5 @@
 <?php
-namespace classes;
+// namespace classes;
 
 class Pessoa{
 	public  $nome, $idade, $peso, $altura;
