@@ -13,5 +13,4 @@ trait IMC
 			echo "Erro, informe o peso e a altura primeiro!";
 		}
 	}
-
 }
