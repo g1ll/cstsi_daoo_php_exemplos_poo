@@ -2,25 +2,23 @@
 namespace classes\logs;
 use classes\Pessoa;
 
-class Relatorio{
+class Relatorio {
 
-	private $dados = [];
+	private $pessoas = [];
 
-	public function __construct(Array $dados)
+	public function add(Pessoa $pessoa)
 	{
-		$this->dados = $dados;
+		$this->pessoas[]=$pessoa;
 	}
-
+	
 	public function log(Pessoa $pessoa)
 	{
-		echo $pessoa;
+		echo "\nlog: ".$pessoa;
 	}
 
 	public function imprime(){
 		echo "\n### RELATORIO ###\n";
-		foreach ($this->dados as $dado) {
-			$this->log($dado);
-		}
+		foreach ($this->pessoas as $pessoa) $this->log($pessoa);
 		echo "\n#############\n";
 	}
 }
