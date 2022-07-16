@@ -1,8 +1,8 @@
 <?php
 header("Content-Type:application/json;charset=utf-8'");
-
 require '../vendor/autoload.php';
 
-use app\model\ProdutoDao;
+use app\controller\Produto;
 
-echo json_encode((new ProdutoDao())->read());
+$controllerProduto = new Produto();
+echo $controllerProduto->index();
