@@ -8,8 +8,7 @@ class DescontoDao extends Model implements DAO
 {
     private $desconto;
 
-    public function __construct(Desconto $desconto = null){
-        if(!isset($desconto)) $desconto = new Desconto();
+    public function __construct(Desconto $desconto = new Desconto()){
         parent::__construct($desconto);
         $this->desconto = $desconto;
     }

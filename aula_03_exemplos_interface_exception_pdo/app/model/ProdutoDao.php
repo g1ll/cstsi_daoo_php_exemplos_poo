@@ -2,9 +2,6 @@
 
 namespace app\model;
 
-use app\model\Produto;
-use PDO;
-
 class ProdutoDao extends Model implements DAO
 {
     private $produto;
@@ -26,7 +23,7 @@ class ProdutoDao extends Model implements DAO
         $sql = "SELECT * FROM produtos";
         $preparedStatement = $this->conn->prepare($sql);
         if($preparedStatement->execute())
-            return $preparedStatement->fetchAll(PDO::FETCH_ASSOC);
+            return $preparedStatement->fetchAll(self::FETCH);
         return false;
     }
 
@@ -35,7 +32,7 @@ class ProdutoDao extends Model implements DAO
         $sql = "SELECT * FROM produtos WHERE 1 $this->filters";
         $preparedStatement = $this->conn->prepare($sql);
         if($preparedStatement->execute($this->values))
-            return $preparedStatement->fetchAll(PDO::FETCH_ASSOC);
+            return $preparedStatement->fetchAll(self::FETCH);
         return false;
     }
 
@@ -43,7 +40,7 @@ class ProdutoDao extends Model implements DAO
         $sql = "SELECT * FROM produtos WHERE id_prod = :id";
         $preparedStatement = $this->conn->prepare($sql);
         if($preparedStatement->execute([':id'=>$id]))
-            return $preparedStatement->fetchAll(PDO::FETCH_ASSOC);
+            return $preparedStatement->fetchAll(self::FETCH);
         return false;
     }
 
@@ -62,6 +59,6 @@ class ProdutoDao extends Model implements DAO
     }
 
     public function insertProdWithDesc($array_ids_desc){
-       
+       //implementar transação
     }
 }

@@ -13,6 +13,7 @@ class Model
     protected $updated; //set columnNames=:columnNames
     protected $values;  //array values
     protected $filters; //filter with like
+    protected const FETCH = PDO::FETCH_ASSOC;
 
     public function __construct($tableObject=null)
     {
