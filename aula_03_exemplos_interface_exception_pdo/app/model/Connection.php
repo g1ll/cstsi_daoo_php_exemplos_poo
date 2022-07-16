@@ -11,7 +11,7 @@ class Connection
 
     public static function getConnection(){
         if(!isset(self::$instance)){
-            $configFile = file_get_contents('config.json');
+            $configFile = file_get_contents('model/config.json');
             self::$config = json_decode($configFile);
             $db = self::$config->db;
             self::$instance = new PDO("mysql: host=$db->host;"
