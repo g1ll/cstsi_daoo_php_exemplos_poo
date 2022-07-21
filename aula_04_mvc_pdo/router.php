@@ -48,6 +48,6 @@ $path = explode('/', $url_path);
 array_shift($path);
 $path =  implode("/", $path);
 
-Router::routes($path, [
+Route::routes($path, [
 	'produto' => Produto::class,
 ]);
