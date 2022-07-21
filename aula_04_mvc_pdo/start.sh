@@ -1,3 +1,2 @@
 #!/bin/sh
-cd app
-php index.php | jq
+php -S localhost:8080 index.php
