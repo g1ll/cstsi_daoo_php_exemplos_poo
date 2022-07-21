@@ -21,10 +21,12 @@ class Produto extends Controller
 	public function show($id)
 	{
 		$produto = $this->model->show($id);
-		if ($produto)
+		if ($produto) {
 			$json = ['produto' => $produto];
-		else
+		} else {
 			$json = ['Erro' => "Produto não encontrado"];
+			header('HTTP/1.0 404 Not Found');
+		}
 		echo json_encode($json);
 	}
 }
