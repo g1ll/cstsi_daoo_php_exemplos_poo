@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 use app\controller\Controller;
 use app\controller\Produto;
 
-class Router
+class Route
 {
 	private static $query;
 	public static function routes($query = null, array $routes)
