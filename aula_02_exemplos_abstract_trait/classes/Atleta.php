@@ -4,6 +4,8 @@ namespace classes;
 
 class Atleta extends Pessoa
 {
+	use IMC;
+
 	private $peso, $altura;
 	
 	public function __construct($nome, $altura, $peso, $idade=null)
@@ -13,14 +15,6 @@ class Atleta extends Pessoa
 		$this->peso = $peso;
 		$this->altura = $altura;
 		$this->calcImc();
-	}
-
-	public function calcImc(){
-        if ($this->peso && $this->altura) {
-            $this->imc = $this->peso/$this->altura**2;
-        }else{
-			echo "Erro, informe o peso e a altura primeiro!";
-		}
 	}
 
 	public function getAltura(){

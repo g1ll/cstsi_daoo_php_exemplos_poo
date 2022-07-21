@@ -1,0 +1,15 @@
+{
+    "name": "echoes/aula_03_exemplos_interface_exception_pdo",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gill Velleda Gonzales",
+            "email": "gillvelleda@gmail.com"
+        }
+    ],
+    "require": {}
+}
