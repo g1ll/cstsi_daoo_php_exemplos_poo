@@ -49,15 +49,13 @@ class Model
     }
 
     protected function executeTransaction($sqlCommands, $parameters,$useLastId=false){
-        try{
-            $this->conn->beginTransaction();
-
-            
-        }catch(\PDOException $error){
-            var_dump([$error->getMessage(), $error->getTraceAsString()]);
-            $this->conn->rollBack();
-            unset($this->conn);
+        // try{
+        //     //implementar            
+        // }catch(\PDOException $error){
+        //     var_dump([$error->getMessage(), $error->getTraceAsString()]);
+        //     $this->conn->rollBack();
+        //     unset($this->conn);
             return false;
-        }
+        // }
     }
 }
