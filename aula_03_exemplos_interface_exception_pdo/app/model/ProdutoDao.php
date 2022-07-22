@@ -13,8 +13,10 @@ class ProdutoDao extends Model implements DAO
 
     public function create(){
         if(!$this->produto) return false;
-        $sql = "INSERT INTO produtos ($this->columns) VALUES ($this->params)";
+        $sql = "INSERT INTO produtos ($this->columns) 
+                VALUES  ($this->params)";
         $preparedStatement = $this->conn->prepare($sql);
+        var_dump($this->values); die;
         $result = $preparedStatement->execute($this->values);
         return ($result && $preparedStatement->rowCount()==1);
     }
@@ -31,6 +33,7 @@ class ProdutoDao extends Model implements DAO
         $this->setFilters($arrayFilter);
         $sql = "SELECT * FROM produtos WHERE 1 $this->filters";
         $preparedStatement = $this->conn->prepare($sql);
+        var_dump($this->values);die;
         if($preparedStatement->execute($this->values))
             return $preparedStatement->fetchAll(self::FETCH);
         return false;

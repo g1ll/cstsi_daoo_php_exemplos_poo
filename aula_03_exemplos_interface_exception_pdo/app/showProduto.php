@@ -5,9 +5,8 @@ use app\model\ProdutoDao;
 
 header("Content-Type:application/json;charset=utf-8'");
 
-$prodDao = new ProdutoDao();
-
 if(isset($_GET['id'])) {
+    $prodDao = new ProdutoDao();
     $produto = $prodDao->show($_GET['id']);
     if($produto)
         $json =['produto'=>$produto];

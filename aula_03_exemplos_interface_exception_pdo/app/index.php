@@ -5,4 +5,6 @@ require '../vendor/autoload.php';
 
 use app\model\ProdutoDao;
 
-echo json_encode((new ProdutoDao())->read());
+$prodDao = new ProdutoDao();
+$result = $prodDao->read();
+echo json_encode($result);
