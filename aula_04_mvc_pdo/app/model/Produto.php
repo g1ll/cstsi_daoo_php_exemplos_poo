@@ -97,10 +97,11 @@ class Produto
     public function toArray()
     {
         return [
-            "nome"=>$this->getNome(),
-            "descricao"=>$this->getDescricao(),
-            "qtd_estoque"=>$this->getQuantidadeEstoque(),
-            "preco"=>$this->getPreco()
+            "nome"=>$this->nome,
+            "descricao"=>$this->descricao,
+            "qtd_estoque"=>$this->quantidadeEstoque,
+            "preco"=>$this->preco,
+            "importado"=>$this->importado
         ];
     }
 }

@@ -9,4 +9,8 @@ abstract class Controller{
 
 	public abstract function index();
 
+	protected function setHeader(){
+		header("Content-Type:application/json;charset=utf-8'");
+	}
+
 }
