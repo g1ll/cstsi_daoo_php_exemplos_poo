@@ -9,7 +9,7 @@ class Produto extends Controller
 
 	public function __construct()
 	{
-		header("Content-Type:application/json;charset=utf-8'");
+		$this->setHeader();
 		$this->model = new ProdutoDao();
 	}
 
