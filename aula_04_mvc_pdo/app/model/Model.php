@@ -15,11 +15,11 @@ class Model
     protected $filters; //filter with like
     protected const FETCH = PDO::FETCH_ASSOC;
 
-    public function __construct($tableObject=null)
+    public function __construct($tableObject = null)
     {
         $this->conn = Connection::getConnection();
 
-        if(isset($tableObject)) {
+        if (isset($tableObject)) {
             $this->filters = '';
             $this->columns = '';
             $this->params = '';
@@ -28,7 +28,7 @@ class Model
             foreach ($tableObject->toArray() as $key => $value) {
                 $this->params .= " :$key,";
                 $this->columns .= " $key,";
-                $this->values[":$key"] = $value;
+                $this->values[":$key"] = is_bool($value) ? (int)$value : $value;
                 $this->updated .= " `$key` = :$key,";
             }
             $this->params = $this->removeLastComma($this->params);
@@ -37,23 +37,24 @@ class Model
         }
     }
 
-    private function removeLastComma($string){
-        return substr($string,0,strlen($string)-1);
+    private function removeLastComma($string)
+    {
+        return substr($string, 0, strlen($string) - 1);
     }
 
-    protected function setFilters($arrayFilter){
-        foreach ($arrayFilter as $key=>$value){
+    protected function setFilters($arrayFilter)
+    {
+        foreach ($arrayFilter as $key => $value) {
             $this->filters .= " AND `$key` like :$key";
-            $this->values[":$key"] = $value;
+            $this->values[":$key"] = "%$value%";
         }
     }
 
-    protected function executeTransaction($sqlCommands, $parameters,$useLastId=false){
-        try{
+    protected function executeTransaction($sqlCommands, $parameters, $useLastId = false)
+    {
+        try {
             $this->conn->beginTransaction();
-
-            
-        }catch(\PDOException $error){
+        } catch (\PDOException $error) {
             var_dump([$error->getMessage(), $error->getTraceAsString()]);
             $this->conn->rollBack();
             unset($this->conn);

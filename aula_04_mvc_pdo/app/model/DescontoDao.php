@@ -33,10 +33,11 @@ class DescontoDao extends Model implements DAO
 
     public function update()
     {
-        $this->values[':id'] = $this->produto->getId();
+        $this->values[':id'] = $this->desconto->getId();
         $sql = "UPDATE descontos SET $this->updated WHERE id_desc = :id";
         $preparedStatement = $this->conn->prepare($sql);
-        return $preparedStatement->execute($this->values);
+        if ($preparedStatement->execute($this->values))
+                return $preparedStatement->rowCount() > 0;
     }
 
     public function delete($id)

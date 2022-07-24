@@ -49,6 +49,16 @@ class Desconto
         $this->taxa = $taxa;
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
     public function toArray(){
         return [
             "descricao"=>$this->descricao,
